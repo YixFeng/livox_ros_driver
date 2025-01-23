@@ -10,7 +10,7 @@
 	<arg name="rviz_enable" default="false"/>
 	<arg name="rosbag_enable" default="false"/>
 	<arg name="cmdline_arg" default="$(arg bd_list)"/>
-	<arg name="msg_frame_id" default="livox_horizon"/>
+	<arg name="msg_frame_id" default="livox_frame"/>
 	<arg name="lidar_bag" default="true"/>
 	<arg name="imu_bag" default="true"/>
 
@@ -28,10 +28,7 @@
 
 	<node name="livox_lidar_publisher" pkg="livox_ros_driver"
 	      type="livox_ros_driver_node" required="true"
-	      output="screen" args="$(arg cmdline_arg)">
-		<remap from="/livox/lidar" to="/livox/horizon" />
-		<remap from="/livox/imu" to="/livox/horizon/imu" />
-	</node>
+	      output="screen" args="$(arg cmdline_arg)"/>
 
 
 	<group if="$(arg rviz_enable)">
